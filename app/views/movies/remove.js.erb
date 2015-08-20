@@ -1,0 +1,4 @@
+var person_id = "<%= @person.id.to_s %>"
+var type = "<%= @type.to_s %>"
+
+$("li."+type+"_"+person_id).remove();

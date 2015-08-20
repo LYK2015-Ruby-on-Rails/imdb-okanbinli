@@ -1,0 +1,17 @@
+<div class="movie-list">
+    <h1> Person List </h1>
+    <p align="right"><%= link_to 'New Person', new_person_path, class: "btn btn-primary btn-lg"%></p>
+  <div class="row">
+    <% @people.each do |person| %>
+        <div class="col-md-4">
+          <div class="jumbotron">
+            <h2><%= link_to person.name, person_path(person) %></h2><br>
+            <%= link_to image_tag(person.image.url, :height => "256"), person_path(person) %>
+            <h2>Age: <%= person.age %> </h2> <br>
+            <p><%= person.bio.first(250)+"..." %> </p> <br>
+            <%= link_to 'Edit', edit_person_path(person), class: "btn btn-primary btn-lg" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

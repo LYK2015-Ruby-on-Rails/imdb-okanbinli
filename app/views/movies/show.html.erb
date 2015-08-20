@@ -1,0 +1,39 @@
+<p>
+  <strong>Title:</strong>
+  <%= @movie.title %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @movie.user.email %>
+</p>
+
+<p>
+  <strong>Story:</strong>
+  <%= @movie.story %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_movie_path(@movie) %>
+<%= link_to 'Back', movies_path %><br> <br>
+
+Actors: <br><br>
+<ul>
+  <% @actors.each do |actor| %>
+      <li class="actor_<%= actor.id %>">
+        <%= image_tag(actor.image.url, :height => "128") %><%= link_to actor.name, actor %>
+        <%= link_to 'Remove', movie_remove_actor_path(@movie, actor.id), remote: true %><br><br>
+      </li>
+  <% end %>
+</ul><br>
+Directors:
+<ul>
+  <% @directors.each do |director| %>
+      <li class="director_<%= director.id %>">
+        <%= image_tag(director.image.url, :height => "128") %><%= link_to director.name, director %>
+        <%= link_to 'Remove', movie_remove_director_path(@movie, director.id), remote: true %> <br> <br>
+      </li>
+  <% end %>
+</ul>

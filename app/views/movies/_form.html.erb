@@ -1,0 +1,46 @@
+<%= form_for @movie, :html => { :multipart => true} do |f| %>
+    <% if @movie.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+          <ul>
+            <% @movie.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.text_field :title, placeholder: "Movie Title" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_area :story, placeholder: "Story" %>
+    </div>
+
+    <div class="upload-file">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="form-group-sm">
+      <%= f.label :actors %> <br>
+      <% @people.each do |people| %>
+          <input type="checkbox" name="actor_ids[]" value=<%= people.id %>>
+          <%= people.name %>
+      <% end %>
+    </div>
+
+    <div class="form-group-sm">
+      <%= f.label :directors %> <br>
+      <% @people.each do |people| %>
+          <input type="checkbox" name="director_ids[]" value=<%= people.id %>>
+          <%= people.name %>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit :class => 'form-group' %>
+    </div>
+<% end %>

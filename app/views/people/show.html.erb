@@ -1,0 +1,32 @@
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+<p>
+  <strong>Bio:</strong>
+  <%= @person.bio %>
+</p>
+<p>
+  <strong>Age:</strong>
+  <%= @person.age %>
+</p>
+
+<%= link_to 'Edit', edit_movie_path(@person) %>
+<%= link_to 'Back', people_path %><br><br>
+
+Movies:
+<ul>
+  <% @acted_movies.each do |movie| %>
+      <li class="<%= movie.id %>">
+        <%= image_tag(movie.image.url, :height => "128") %><%= link_to movie.title, movie %><br>
+      </li>
+  <% end %>
+</ul>
+<ul>
+  <% @directed_movies.each do |movie| %>
+      <li class="<%= movie.id %>">
+        <%= image_tag(movie.image.url, :height => "128") %><%= link_to movie.title, movie %><br>
+      </li>
+  <% end %>
+</ul>
+

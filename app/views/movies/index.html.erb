@@ -1,0 +1,19 @@
+<div class="movie-list">
+    <h1> Movie List </h1>
+    <div class="new-movie"><%= link_to 'New Movie', new_movie_path, class: "btn btn-primary btn-lg"%></div>
+
+    <div class="row">
+        <% @movies.each do |movie| %>
+          <div class="col-md-4">
+            <div class="jumbotron">
+                <h2><%= link_to movie.title, movie_path(movie) %></h2> <br>
+                <%= link_to image_tag(movie.image.url, height: 350), movie_path(movie) %>
+                <p>Story: <%= movie.story.first(250)+"..." %> </p> <br>
+              <div class="edit-button">
+                <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-primary btn-lg" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+</div>

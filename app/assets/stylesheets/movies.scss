@@ -1,0 +1,36 @@
+// Place all the styles related to the movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.movie-list {
+
+  margin-top: 1%;
+  margin-bottom: 10%;
+  margin-right: 5%;
+  margin-left: 5%;
+
+  h1{
+    font-size: 60px;
+    text-align: center;
+  }
+  .new-movie{
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  .row {
+    .col-md-4{
+      .jumbotron{
+        background-color: #A7DBD8;
+        border-radius: 50px;
+        text-align: center;
+        height: 750px;
+        p{
+          margin-top: 10px;
+        }
+        a{
+
+        }
+      }
+    }
+
+  }
+}

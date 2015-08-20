@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lyk2015Imdb</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/people">People</a>
+      <a class="navbar-brand" href="/movies">Movies</a>
+    </div>
+    <ul class="nav pull-right">
+      <li>
+        <div id="user_nav">
+          <% if user_signed_in? %>
+              Signed in as <%= current_user.email %>. Not you?
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-mini', style: "margin: 7px;" %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+    <% unless user_signed_in? %>
+        <%= form_for(:user, :url => session_path(:user), :html => { :class => 'navbar-form navbar-right'}) do |f| %>
+            <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+            <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+            <%= f.check_box :remember_me, class: "form-control" %>
+            <%= f.label :remember? %>
+            <%= f.submit 'Sign in', class: "btn" %>
+            <%= button_to "Forgot your password?", new_password_path(:user), class: "btn" %>
+        <% end %>
+    <% end %>
+  </div>
+</nav>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
