@@ -14,15 +14,18 @@ class MoviesController < ApplicationController
   def new
     @movie = Movie.new
     @people = Person.all
+    authorize! :new, @movie
   end
 
   def edit
     @people = Person.all
+    authorize! :edit, @movie
   end
 
 
   def create
     @movie = current_user.movies.create(movie_params)
+    authorize! :create, @movie
 
     params[:actor_ids].each do |actor_id|
       ActorMovie.create(movie_id: @movie.id, person_id: actor_id.to_i)
@@ -43,6 +46,7 @@ class MoviesController < ApplicationController
 
   def update
 
+    authorize! :update, @movie
     params[:actor_ids].each do |actor_id|
       actor = ActorMovie.find_by_person_id(actor_id.to_i).try(:person)
       unless @movie.actors.include?(actor)

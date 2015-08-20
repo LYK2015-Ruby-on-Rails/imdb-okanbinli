@@ -2,6 +2,8 @@ class Movie < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  ratyrate_rateable "star"
+
   belongs_to :user
 
   has_many :actor_movies
