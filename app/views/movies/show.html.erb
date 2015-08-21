@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-md-6">
       <div class="jumbotron">
-        <h2>
-          <strong>Title:</strong>
+        <h2><strong>
           <%= @movie.title %>
-          <%= @views +=1 %>
+        </strong>
         </h2>
+        Views:<%= @movie.views %>
 
         <p>
           <strong>Story:</strong>
@@ -25,8 +25,8 @@
     <div class="col-md-6">
       <div class="jumbotron">
             <h2>Trailer</h2>
-          <iframe width="420" height="275"
-                  src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=0">
+          <iframe width="420" height="330"
+                  src="<%= @movie.trailer %>">
           </iframe>
       </div>
     </div>

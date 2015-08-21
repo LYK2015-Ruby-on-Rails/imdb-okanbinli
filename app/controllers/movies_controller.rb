@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
   def show
     @actors = @movie.actors
     @directors = @movie.directors
-    @views = 0
+    update_views(@movie)
   end
 
   def new
@@ -102,7 +102,12 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :director, :story, :image)
+    params.require(:movie).permit(:title, :director, :story, :image, :trailer)
+  end
+
+  def update_views(movie)
+    movie.views = movie.views + 1
+    movie.save
   end
 
 
