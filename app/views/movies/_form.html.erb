@@ -1,64 +1,61 @@
-<%= form_for @movie, :html => { :multipart => true} do |f| %>
-    <% if @movie.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+<div class="row">
+  <div class="col-md-4"></div>
+    <%= form_for @movie, :html => { :multipart => true} do |f| %>
+        <% if @movie.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
-          <ul>
-            <% @movie.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.text_field :title, placeholder: "Movie Title", class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.text_area :story, placeholder: "Story", class: "form-control"%>
-    </div>
-
-    <div class="upload-file">
-      <%= f.label :image %>
-      <%= f.file_field :image, class:"btn btn-default" %>
-    </div> <br>
-
-    <div class="form-group-sm">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <%= f.label :actors %> <br>
-          <% @people.sort_by {|word| word.name.first(1)}
-                     .each do |people| %>
-            <div class="col-md-4">
-              <input type="checkbox" name="actor_ids[]" value=<%= people.id %>>
-              <%= people.name %>
+              <ul>
+                <% @movie.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
             </div>
-          <% end %>
+        <% end %>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.text_field :title, placeholder: "Movie Title", class: "form-control" %>
         </div>
-        <div class="col-md-4"></div>
-      </div>
-    </div> <br>
 
-    <div class="form-group-sm">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <%= f.label :directors %> <br>
-          <% @people.sort_by {|word| word.name.first(1)}
-                     .each do |people| %>
-              <div class="col-md-4">
-              <input type="checkbox" name="director_ids[]" value=<%= people.id %>>
-              <%= people.name %>
-              </div>
-          <% end %>
+        <div class="form-group">
+          <%= f.text_area :story, placeholder: "Story", class: "form-control", style: "height: 200px;"%>
         </div>
-        <div class="col-md-4"></div>
-      </div>
-    </div> <br>
 
-    <div class="actions">
-      <%= f.submit :class => 'form-group' %>
-    </div>
-<% end %>
+        <div class="upload-file">
+          <%= f.label :image %>
+          <%= f.file_field :image, class:"btn btn-default" %>
+        </div> <br>
+
+        <div class="col-md-12">
+            <div class="form-group-sm">
+                  <%= f.label :actors %> <br>
+                  <% @people.sort_by {|word| word.name.first(1)}
+                             .each do |people| %>
+                    <div class="col-md-4">
+                      <input type="checkbox" name="actor_ids[]" value=<%= people.id %>>
+                      <%= people.name %>
+                    </div>
+                  <% end %>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-12">
+            <div class="form-group-sm">
+                  <%= f.label :directors %> <br>
+                  <% @people.sort_by {|word| word.name.first(1)}
+                             .each do |people| %>
+                      <div class="col-md-4">
+                      <input type="checkbox" name="director_ids[]" value=<%= people.id %>>
+                      <%= people.name %>
+                      </div>
+                  <% end %>
+            </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit :class => 'form-group' %>
+        </div>
+      </div>
+    <% end %>
+  <div class="col-md-4"></div>
+</div>

@@ -1,0 +1,18 @@
+.movie-list
+  %h1 Top Movies
+  %br/
+  .row
+    .col-md-2
+    .col-md-8
+      - @ratings.each do |rating|
+        - movie = Movie.find(rating.cacheable_id)
+        .col-md-4
+          .jumbotron{:style => "height: auto;"}
+            %h2= movie.title
+            %br/
+            = image_tag(movie.image.url, height: 400)
+            %br/
+            %br/
+            %h2
+              Rating: #{rating.avg.to_s.first(3)}
+    .col-md-2
