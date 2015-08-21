@@ -5,6 +5,7 @@
         <h2>
           <strong>Title:</strong>
           <%= @movie.title %>
+          <%= @views +=1 %>
         </h2>
 
         <p>
@@ -34,28 +35,65 @@
     <div class="row">
         <div class="col-md-6">
           <div class="jumbotron">
-            Actors: <br><br>
+            <h2>Actors</h2> <br><br>
+            <div class="row">
               <% @actors.each do |actor| %>
-                  <li class="actor_<%= actor.id %>">
-                    <%= image_tag(actor.image.url, :height => "128") %><%= link_to actor.name, actor %>
-                    <% if can? :update, @movie %>
-                        <%= link_to 'Remove', movie_remove_actor_path(@movie, actor.id), class: "btn btn-primary btn-xs", remote: true %><br><br>
-                    <% end %>
-                  </li>
+                    <div class="col-md-4">
+                      <ul style="list-style-type:none">
+                          <li class="actor_<%= actor.id %>">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <%= image_tag(actor.image.url, :height => "64") %>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <%= link_to actor.name, actor %>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <% if can? :update, @movie %>
+                                        <%= link_to 'Remove', movie_remove_actor_path(@movie, actor.id), class: "btn btn-primary btn-xs", remote: true %><br><br>
+
+                                    <% end %>
+                                </div>
+                            </div>
+                          </li>
+                      </ul>
+                    </div>
               <% end %>
+              </div>
           </div>
         </div>
       <div class="col-md-6">
         <div class="jumbotron">
-            Directors:
-              <% @directors.each do |director| %>
-                  <li class="director_<%= director.id %>">
-                    <%= image_tag(director.image.url, :height => "128") %><%= link_to director.name, director %>
-                    <% if can? :update, @movie %>
-                        <%= link_to 'Remove', movie_remove_director_path(@movie, director.id), class: "btn btn-primary btn-xs", remote: true %>
-                    <% end %>
-                  </li>
-              <% end %>
+            <h2>Director(s)</h2>
+              <div class="row">
+                  <% @directors.each do |director| %>
+                    <div class="col-md-4">
+                      <ul style="list-style-type:none">
+                          <li class="director_<%= director.id %>">
+                            <div class="row">
+
+                              <div class="col-md-5">
+                                <%= image_tag(director.image.url, :height => "128") %>
+                              </div>
+
+                              <div class="col-md-3">
+                                <%= link_to director.name, director %>
+                              </div>
+
+                              <div class="col-md-3">
+                                <% if can? :update, @movie %>
+                                    <%= link_to 'Remove', movie_remove_director_path(@movie, director.id), class: "btn btn-primary btn-xs", remote: true %>
+                                <% end %>
+                              </div>
+
+                            </div>
+                          </li>
+                      </ul>
+                    </div>
+                  <% end %>
+              </div>
         </div>
       </div>
     </div>

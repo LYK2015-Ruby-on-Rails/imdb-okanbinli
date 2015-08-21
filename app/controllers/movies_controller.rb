@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
   def show
     @actors = @movie.actors
     @directors = @movie.directors
+    @views = 0
   end
 
   def new
