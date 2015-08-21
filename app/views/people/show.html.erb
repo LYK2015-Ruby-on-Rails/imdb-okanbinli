@@ -15,14 +15,14 @@
 <%= link_to 'Back', people_path %><br><br>
 
 Movies:
-<ul>
+<ul style="list-style-type:none">
   <% @acted_movies.each do |movie| %>
       <li class="<%= movie.id %>">
         <%= image_tag(movie.image.url, :height => "128") %><%= link_to movie.title, movie %><br>
       </li>
   <% end %>
 </ul>
-<ul>
+<ul style="list-style-type:none">
   <% @directed_movies.each do |movie| %>
       <li class="<%= movie.id %>">
         <%= image_tag(movie.image.url, :height => "128") %><%= link_to movie.title, movie %><br>

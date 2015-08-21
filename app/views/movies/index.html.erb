@@ -8,13 +8,18 @@
         <% @movies.each do |movie| %>
           <div class="col-md-4">
             <div class="jumbotron">
+              <div class="deneme">
                 <h2><%= link_to movie.title, movie_path(movie) %></h2> <br>
+                <div class="image">
                 <%= link_to image_tag(movie.image.url, height: 350), movie_path(movie) %>
+                </div>
                 <p>Story: <%= movie.story.first(250)+"..." %> </p> <br>
+              Rating:<%= rating_for movie, "star" %>
               <div class="edit-button">
-                <% if can? :update, @movie %>
+                <% if can? :update, @movie %> <br>
                     <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-primary btn-lg" %>
                 <% end %>
+              </div>
               </div>
             </div>
           </div>

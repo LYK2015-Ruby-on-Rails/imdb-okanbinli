@@ -22,9 +22,39 @@
         background-color: #A7DBD8;
         border-radius: 50px;
         text-align: center;
-        height: 750px;
+        height: 775px;
+        box-shadow: 10px 10px 5px #888888;
+        .deneme{
+          margin-top: -50px;
+          img{
+            -webkit-filter: drop-shadow(5px 5px 5px #222);
+            filter: drop-shadow(5px 5px 5px #222);
+          }
+        }
         p{
-          margin-top: 10px;
+          margin: 10px;
+        }
+        a{
+
+        }
+      }
+    }
+    .col-md-12{
+      .jumbotron{
+        background-color: #A7DBD8;
+        border-radius: 50px;
+        text-align: center;
+
+        box-shadow: 10px 10px 5px #888888;
+        .deneme{
+          margin-top: -50px;
+          img{
+            -webkit-filter: drop-shadow(5px 5px 5px #222);
+            filter: drop-shadow(5px 5px 5px #222);
+          }
+        }
+        p{
+          margin: 10px;
         }
         a{
 

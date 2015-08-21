@@ -4,6 +4,8 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.all
+    @people = @people.sort_by {|word| word.name.first(1)}
+
   end
 
   def show

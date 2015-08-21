@@ -1,3 +1,45 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.movie-list {
+
+  margin-top: 51%;
+  margin-bottom: 10%;
+  margin-right: 5%;
+  margin-left: 5%;
+
+  h1{
+    font-size: 60px;
+    text-align: center;
+  }
+  .row {
+    .col-md-4{
+      .col-md-12{
+        .jumbotron{
+          background-color: #A7DBD8;
+          border-radius: 50px;
+          text-align: center;
+
+          box-shadow: 10px 10px 5px #888888;
+          .deneme{
+            margin-top: -50px;
+            img{
+              -webkit-filter: drop-shadow(5px 5px 5px #222);
+              filter: drop-shadow(5px 5px 5px #222);
+            }
+          }
+          p{
+            margin: 10px;
+          }
+          a{
+
+          }
+        }
+      }
+    }
+
+  }
+}

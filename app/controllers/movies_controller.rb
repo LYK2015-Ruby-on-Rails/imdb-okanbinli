@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @movies = @movies.sort_by {|word| word.title.first(1)}
   end
 
   def show

@@ -12,33 +12,51 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.text_field :title, placeholder: "Movie Title" %>
+      <%= f.text_field :title, placeholder: "Movie Title", class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.text_area :story, placeholder: "Story" %>
+      <%= f.text_area :story, placeholder: "Story", class: "form-control"%>
     </div>
 
     <div class="upload-file">
       <%= f.label :image %>
-      <%= f.file_field :image %>
-    </div>
+      <%= f.file_field :image, class:"btn btn-default" %>
+    </div> <br>
 
     <div class="form-group-sm">
-      <%= f.label :actors %> <br>
-      <% @people.each do |people| %>
-          <input type="checkbox" name="actor_ids[]" value=<%= people.id %>>
-          <%= people.name %>
-      <% end %>
-    </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <%= f.label :actors %> <br>
+          <% @people.sort_by {|word| word.name.first(1)}
+                     .each do |people| %>
+            <div class="col-md-4">
+              <input type="checkbox" name="actor_ids[]" value=<%= people.id %>>
+              <%= people.name %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div> <br>
 
     <div class="form-group-sm">
-      <%= f.label :directors %> <br>
-      <% @people.each do |people| %>
-          <input type="checkbox" name="director_ids[]" value=<%= people.id %>>
-          <%= people.name %>
-      <% end %>
-    </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <%= f.label :directors %> <br>
+          <% @people.sort_by {|word| word.name.first(1)}
+                     .each do |people| %>
+              <div class="col-md-4">
+              <input type="checkbox" name="director_ids[]" value=<%= people.id %>>
+              <%= people.name %>
+              </div>
+          <% end %>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div> <br>
 
     <div class="actions">
       <%= f.submit :class => 'form-group' %>

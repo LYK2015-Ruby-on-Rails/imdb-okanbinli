@@ -18,4 +18,9 @@ body{
     background-color: #E0E4CC !important;
     text-align: center !important;
     color: #4d6c3c !important;
+
+}
+
+input[type=file] {
+    margin: 0 auto;
 }
