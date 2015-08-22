@@ -4,6 +4,8 @@ class Movie < ActiveRecord::Base
 
   ratyrate_rateable "star"
 
+  acts_as_commentable
+
   belongs_to :user
 
   has_many :actor_movies

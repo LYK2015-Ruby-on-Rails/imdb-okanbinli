@@ -1,32 +1,47 @@
-<p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
-<p>
-  <strong>Bio:</strong>
-  <%= @person.bio %>
-</p>
-<p>
-  <strong>Age:</strong>
-  <%= @person.age %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="jumbotron">
+    <p>
+      <strong>Name:</strong>
+      <%= @person.name %>
+    </p>
+    <p>
+      <strong>Bio:</strong>
+      <%= @person.bio %>
+    </p>
+    <p>
+      <strong>Age:</strong>
+      <%= @person.age %>
+    </p>
 
-<%= link_to 'Edit', edit_movie_path(@person) %>
-<%= link_to 'Back', people_path %><br><br>
+    <%= link_to 'Edit', edit_movie_path(@person) %>
+    <%= link_to 'Back', people_path %><br><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        Movies:
+        <ul style="list-style-type:none">
+          <% @acted_movies.each do |movie| %>
+              <div class="col-md-4">
+              <li class="<%= movie.id %>">
+                <%= image_tag(movie.image.url, :height => "128") %><%= link_to movie.title, movie %><br>
+              </li>
+              </div>
+          <% end %>
+        </ul>
+        <ul style="list-style-type:none">
+          <% @directed_movies.each do |movie| %>
+              <div class="col-md-4">
+              <li class="<%= movie.id %>">
+                <%= image_tag(movie.image.url, :height => "128") %><%= link_to movie.title, movie %><br>
+              </li>
+              </div>
+          <% end %>
+        </ul>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
 
-Movies:
-<ul style="list-style-type:none">
-  <% @acted_movies.each do |movie| %>
-      <li class="<%= movie.id %>">
-        <%= image_tag(movie.image.url, :height => "128") %><%= link_to movie.title, movie %><br>
-      </li>
-  <% end %>
-</ul>
-<ul style="list-style-type:none">
-  <% @directed_movies.each do |movie| %>
-      <li class="<%= movie.id %>">
-        <%= image_tag(movie.image.url, :height => "128") %><%= link_to movie.title, movie %><br>
-      </li>
-  <% end %>
-</ul>
-
+</div>

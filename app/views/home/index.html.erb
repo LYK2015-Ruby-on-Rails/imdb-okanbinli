@@ -8,8 +8,8 @@
               <% movie = Movie.find(rating.cacheable_id) %>
               <div class="col-md-4">
                 <div class="jumbotron" style="height: auto;">
-                 <h2><%= movie.title %></h2> <br>
-                  <%= image_tag(movie.image.url, height: 400) %> <br> <br>
+                 <h2><%= link_to movie.title, movie_path(movie) %></h2> <br>
+                  <%= link_to image_tag(movie.image.url, height: 400), movie_path(movie) %> <br> <br>
                   <h2>Rating: <%= rating.avg.to_s.first(3) %></h2>
                 </div>
               </div>

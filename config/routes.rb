@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :movies do
     get 'remove_actor/:person_id', to: 'movies#remove_actor', as: :remove_actor
     get 'remove_director/:person_id', to: 'movies#remove_director', as: :remove_director
+    get 'create_comment', to: 'movies#create_comment', as: :create_comment
   end
   resources :people
   # The priority is based upon order of creation: first created -> highest priority.

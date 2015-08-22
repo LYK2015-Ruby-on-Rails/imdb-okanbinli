@@ -95,6 +95,8 @@ class MoviesController < ApplicationController
     end
   end
 
+
+
   private
 
   def set_movie
@@ -109,6 +111,5 @@ class MoviesController < ApplicationController
     movie.views = movie.views + 1
     movie.save
   end
-
 
 end
